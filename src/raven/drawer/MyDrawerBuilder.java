@@ -7,7 +7,9 @@ import raven.drawer.component.menu.MenuAction;
 import raven.drawer.component.menu.MenuEvent;
 import raven.drawer.component.menu.MenuValidation;
 import raven.drawer.component.menu.SimpleMenuOption;
+import raven.form.TestForm;
 import raven.swing.AvatarIcon;
+import raven.tabbed.WindowsTabbed;
 
 /**
  *
@@ -59,17 +61,20 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .addMenuEvent(new MenuEvent() {
                     @Override
                     public void selected(MenuAction action, int index, int subIndex) {
+                        if(index==0){
+                            WindowsTabbed.getInstance().addTab("Test Form", new TestForm());
+                        }
                         System.out.println("Menu selected " + index + " " + subIndex);
                     }
                 })
                 .setMenuValidation(new MenuValidation() {
                     @Override
                     public boolean menuValidation(int index, int subIndex) {
-                        if(index==0){
-                            return false;
-                        }else if(index==3){
-                            return false;
-                        }
+//                        if(index==0){
+//                            return false;
+//                        }else if(index==3){
+//                            return false;
+//                        }
                         return true;
                     }
 
