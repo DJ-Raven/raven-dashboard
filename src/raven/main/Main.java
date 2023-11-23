@@ -1,7 +1,6 @@
 package raven.main;
 
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Font;
@@ -11,7 +10,6 @@ import raven.drawer.MyDrawerBuilder;
 import raven.popup.GlassPanePopup;
 import raven.tabbed.WindowsTabbed;
 import raven.toast.Notifications;
-import raven.toast.ToastClientProperties;
 
 /**
  *
@@ -68,7 +66,6 @@ public class Main extends javax.swing.JFrame {
         FlatRobotoFont.install();
         FlatLaf.registerCustomDefaultsSource("raven.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
-        UIManager.put(ToastClientProperties.TOAST_INFO_ICON, new FlatSVGIcon("raven/drawer/icon/chat.svg"));
         FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
