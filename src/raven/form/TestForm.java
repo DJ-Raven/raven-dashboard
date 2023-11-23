@@ -2,6 +2,7 @@ package raven.form;
 
 import javax.swing.JOptionPane;
 import raven.tabbed.TabbedForm;
+import raven.toast.Notifications;
 
 /**
  *
@@ -30,6 +31,11 @@ public class TestForm extends TabbedForm {
         txt = new javax.swing.JTextArea();
 
         jButton1.setText("Test");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         txt.setColumns(20);
         txt.setRows(5);
@@ -56,6 +62,10 @@ public class TestForm extends TabbedForm {
                 .addContainerGap(209, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Notifications.getInstance().show(Notifications.Type.INFO, "Test Toast Notifications");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     @Override
     public boolean formClose() {
