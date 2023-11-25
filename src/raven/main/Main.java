@@ -3,6 +3,7 @@ package raven.main;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.awt.ComponentOrientation;
 import java.awt.Font;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
@@ -27,6 +28,7 @@ public class Main extends javax.swing.JFrame {
         Drawer.getInstance().setDrawerBuilder(myDrawerBuilder);
         initComponents();
         WindowsTabbed.getInstance().install(this, body);
+    //    applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
     }
 
     /**

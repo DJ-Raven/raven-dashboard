@@ -87,4 +87,9 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .setTitle("Java Swing Drawer")
                 .setDescription("Version 1.1.0");
     }
+
+    @Override
+    public int getDrawerWidth() {
+        return 275;
+    }
 }

@@ -46,9 +46,7 @@ public class WindowsTabbed {
     private JButton createDrawerButton() {
         JButton cmd = new JButton(new FlatSVGIcon("raven/svg/menu.svg", 0.9f));
         cmd.addActionListener((ae) -> {
-            if (!Drawer.getInstance().getDrawerPanel().isShowing()) {
-                Drawer.getInstance().showDrawer();
-            }
+            Drawer.getInstance().showDrawer();
         });
         cmd.putClientProperty(FlatClientProperties.STYLE, ""
                 + "borderWidth:0;"
