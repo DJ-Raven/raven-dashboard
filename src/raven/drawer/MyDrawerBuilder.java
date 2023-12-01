@@ -8,6 +8,7 @@ import raven.drawer.component.menu.MenuEvent;
 import raven.drawer.component.menu.MenuValidation;
 import raven.drawer.component.menu.SimpleMenuOption;
 import raven.form.TestForm;
+import raven.main.Main;
 import raven.swing.AvatarIcon;
 import raven.tabbed.WindowsTabbed;
 
@@ -40,7 +41,8 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             {"~OTHER~"},
             {"Charts", "Apex", "Flot", "Sparkline"},
             {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},};
+            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
+            {"Logout"}};
 
         String icons[] = {
             "dashboard.svg",
@@ -51,7 +53,8 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
             "forms.svg",
             "chart.svg",
             "icon.svg",
-            "page.svg",};
+            "page.svg",
+            "logout.svg"};
 
         return new SimpleMenuOption()
                 .setMenus(menus)
@@ -61,8 +64,10 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                 .addMenuEvent(new MenuEvent() {
                     @Override
                     public void selected(MenuAction action, int index, int subIndex) {
-                        if(index==0){
+                        if (index == 0) {
                             WindowsTabbed.getInstance().addTab("Test Form", new TestForm());
+                        } else if (index == 9) {
+                            Main.main.login();
                         }
                         System.out.println("Menu selected " + index + " " + subIndex);
                     }

@@ -5,7 +5,6 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.ui.FlatUIUtils;
 import com.formdev.flatlaf.util.UIScale;
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
@@ -36,7 +35,7 @@ public class TabbedItem extends JToggleButton {
                 + "innerFocusWidth:0;"
                 + "background:null;"
                 + "arc:10;"
-                + "margin:3,8,3,5");
+                + "margin:2,8,2,5");
         JButton cmd = new JButton(new FlatSVGIcon("raven/svg/close.svg", 0.8f));
         cmd.addActionListener((ae) -> {
             WindowsTabbed.getInstance().removeTab(this);

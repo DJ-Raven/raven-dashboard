@@ -57,7 +57,7 @@ public class TestForm extends TabbedForm {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+                .addContainerGap(222, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -83,23 +83,23 @@ public class TestForm extends TabbedForm {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    MessageAlerts.getInstance().showMessage("Data Saving Failure", "Oops! We encountered an issue while attempting to save your data. Please try again later or contact support for assistance. Apologies for any inconvenience caused.",MessageAlerts.MessageType.ERROR,MessageAlerts.OK_OPTION,new PopupCallbackAction() {
-        @Override
-        public void action(PopupController pc, int i) {
-           if(i==MessageAlerts.OK_OPTION){
-               System.out.println("Click ok");
-           }
-        }
-    });
+        MessageAlerts.getInstance().showMessage("Data Saving Failure", "Oops! We encountered an issue while attempting to save your data. Please try again later or contact support for assistance. Apologies for any inconvenience caused.", MessageAlerts.MessageType.ERROR, MessageAlerts.OK_OPTION, new PopupCallbackAction() {
+            @Override
+            public void action(PopupController pc, int i) {
+                if (i == MessageAlerts.OK_OPTION) {
+                    System.out.println("Click ok");
+                }
+            }
+        });
     }//GEN-LAST:event_jButton2ActionPerformed
 
     @Override
     public boolean formClose() {
-       if(txt.getText().trim().equals("")){
-           return true;
-       }
-       int opt=JOptionPane.showConfirmDialog(this, "Data not save do you want to close ?", "Close", JOptionPane.YES_NO_OPTION);
-       return opt==JOptionPane.YES_OPTION;
+        if (txt.getText().trim().equals("")) {
+            return true;
+        }
+        int opt = JOptionPane.showConfirmDialog(this, "Data not save do you want to close ?", "Close", JOptionPane.YES_NO_OPTION);
+        return opt == JOptionPane.YES_OPTION;
     }
 
     @Override

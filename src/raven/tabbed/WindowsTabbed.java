@@ -19,6 +19,7 @@ import raven.drawer.Drawer;
 public class WindowsTabbed {
 
     private static WindowsTabbed instance;
+    private JMenuBar menuBar;
     private PanelTabbed panelTabbed;
     private JPanel body;
     private TabbedForm temp;
@@ -32,15 +33,23 @@ public class WindowsTabbed {
 
     public void install(JFrame frame, JPanel body) {
         this.body = body;
-        JMenuBar menuBar = new JMenuBar();
+        menuBar = new JMenuBar();
         menuBar.putClientProperty(FlatClientProperties.STYLE, ""
-                + "borderColor:$TitlePane.background");
+                + "borderColor:$TitlePane.background;"
+                + "border:0,0,0,0");
         panelTabbed = new PanelTabbed();
         panelTabbed.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$TitlePane.background");
         menuBar.add(createDrawerButton());
         menuBar.add(createScroll(panelTabbed));
         frame.setJMenuBar(menuBar);
+    }
+
+    public void showTabbed(boolean show) {
+        menuBar.setVisible(show);
+        if(!show){
+            Drawer.getInstance().closeDrawer();
+        }
     }
 
     private JButton createDrawerButton() {
