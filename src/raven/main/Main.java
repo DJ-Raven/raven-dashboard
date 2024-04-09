@@ -3,7 +3,6 @@ package raven.main;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import java.awt.ComponentOrientation;
 import java.awt.Font;
 import javax.swing.UIManager;
 import raven.drawer.Drawer;
@@ -53,6 +52,7 @@ public class Main extends javax.swing.JFrame {
 
     public void showMainForm() {
         WindowsTabbed.getInstance().showTabbed(true);
+        WindowsTabbed.getInstance().removeAllTabbed();
         setContentPane(body);
         revalidate();
         repaint();
