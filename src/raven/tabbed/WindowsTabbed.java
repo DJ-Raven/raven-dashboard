@@ -5,6 +5,8 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -100,7 +102,7 @@ public class WindowsTabbed {
         item.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                showForm(item.component);
+                showForm(item.getComponent());
             }
         });
         panelTabbed.addTab(item);
@@ -110,7 +112,7 @@ public class WindowsTabbed {
     }
 
     public void removeTab(TabbedItem tab) {
-        if (tab.component.formClose()) {
+        if (tab.getComponent().formClose()) {
             if (tab.isSelected()) {
                 body.removeAll();
                 body.revalidate();
@@ -127,6 +129,41 @@ public class WindowsTabbed {
         if (com instanceof TabbedItem) {
             removeTab((TabbedItem) com);
         }
+    }
+
+    public void removeTab(TabbedForm tab) {
+        for (Component com : panelTabbed.getComponents()) {
+            if (com instanceof TabbedItem) {
+                TabbedForm form = ((TabbedItem) com).getComponent();
+                if (form == tab) {
+                    removeTab((TabbedItem) com);
+                }
+            }
+        }
+    }
+
+    public String[] getTabName() {
+        List<String> list = new ArrayList<>();
+        for (Component com : panelTabbed.getComponents()) {
+            if (com instanceof TabbedItem) {
+                String name = ((TabbedItem) com).getTabbedName();
+                list.add(name);
+            }
+        }
+        String[] arr = new String[list.size()];
+        list.toArray(arr);
+        return arr;
+    }
+
+    public int getTabSelectedIndex() {
+        for (Component com : panelTabbed.getComponents()) {
+            if (com instanceof TabbedItem) {
+                if (((TabbedItem) com).isSelected()) {
+                    return panelTabbed.getComponentZOrder(com);
+                }
+            }
+        }
+        return -1;
     }
 
     public void showForm(TabbedForm component) {

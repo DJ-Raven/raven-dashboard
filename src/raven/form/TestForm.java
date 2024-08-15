@@ -81,7 +81,17 @@ public class TestForm extends TabbedForm {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Notifications.getInstance().show(Notifications.Type.INFO, "Test Toast Notifications");
-        WindowsTabbed.getInstance().removeTabAt(2);
+        //WindowsTabbed.getInstance().removeTab(this);
+
+        // get all tab name
+        String[] arr = WindowsTabbed.getInstance().getTabName();
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+
+        System.out.println("------------");
+
+        System.out.println("selected: " + WindowsTabbed.getInstance().getTabSelectedIndex());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

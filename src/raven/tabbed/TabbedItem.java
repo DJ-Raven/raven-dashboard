@@ -20,9 +20,19 @@ import net.miginfocom.swing.MigLayout;
  */
 public class TabbedItem extends JToggleButton {
 
-    protected final TabbedForm component;
+    public TabbedForm getComponent() {
+        return component;
+    }
+
+    public String getTabbedName() {
+        return tabbedName;
+    }
+
+    private final TabbedForm component;
+    private final String tabbedName;
 
     public TabbedItem(String name, TabbedForm component) {
+        this.tabbedName = name;
         this.component = component;
         init(name);
     }
