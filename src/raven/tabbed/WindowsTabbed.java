@@ -122,6 +122,13 @@ public class WindowsTabbed {
         }
     }
 
+    public void removeTabAt(int index) {
+        Component com = panelTabbed.getComponent(index);
+        if (com instanceof TabbedItem) {
+            removeTab((TabbedItem) com);
+        }
+    }
+
     public void showForm(TabbedForm component) {
         body.removeAll();
         body.add(component);

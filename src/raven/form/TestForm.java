@@ -5,6 +5,7 @@ import raven.alerts.MessageAlerts;
 import raven.popup.component.PopupCallbackAction;
 import raven.popup.component.PopupController;
 import raven.tabbed.TabbedForm;
+import raven.tabbed.WindowsTabbed;
 import raven.toast.Notifications;
 
 /**
@@ -80,6 +81,7 @@ public class TestForm extends TabbedForm {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Notifications.getInstance().show(Notifications.Type.INFO, "Test Toast Notifications");
+        WindowsTabbed.getInstance().removeTabAt(2);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
