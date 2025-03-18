@@ -113,6 +113,9 @@ public class WindowsTabbed {
 
     public void removeTab(TabbedItem tab) {
         if (tab.getComponent().formClose()) {
+            int index = panelTabbed.getComponentZOrder(tab);
+            boolean removedCurrentView = index == getTabSelectedIndex();
+
             if (tab.isSelected()) {
                 body.removeAll();
                 body.revalidate();
@@ -121,6 +124,15 @@ public class WindowsTabbed {
             panelTabbed.remove(tab);
             panelTabbed.revalidate();
             panelTabbed.repaint();
+            if (removedCurrentView) {
+                // auto selected tab
+                int selectedIndex = Math.min(index, panelTabbed.getComponentCount() - 1);
+                if (selectedIndex >= 0) {
+                    TabbedItem item = (TabbedItem) panelTabbed.getComponent(selectedIndex);
+                    item.setSelected(true);
+                    showForm(item.getComponent());
+                }
+            }
         }
     }
 
